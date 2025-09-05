@@ -35,7 +35,7 @@ const Adduser = () => {
     formData.append("image", user.image);  // Ensure file is sent correctly
 
     try {
-        await axios.post("http://localhost:8000/api/user", formData, {
+        await axios.post("https://pesticide-fullsite-work.onrender.com/api/user", formData, {
             headers: { "Content-Type": "multipart/form-data" } // The Content-Type: multipart/form-data header 
             // ensures the request properly transmits the file and text data.
         });

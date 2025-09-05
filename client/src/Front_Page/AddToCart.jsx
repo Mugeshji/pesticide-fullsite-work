@@ -17,8 +17,8 @@ const AddToCart = () => {
         const processedItems = items.map(item => {
           // Handle image path
           let imagePath = item.image;
-          if (imagePath && !imagePath.startsWith('http://localhost:8000') && !imagePath.startsWith('data:')) {
-            imagePath = `http://localhost:8000${imagePath}`;
+          if (imagePath && !imagePath.startsWith('https://pesticide-fullsite-work.onrender.com') && !imagePath.startsWith('data:')) {
+            imagePath = `https://pesticide-fullsite-work.onrender.com${imagePath}`;
           }
           
           // Ensure we have both id and _id for API compatibility
@@ -48,8 +48,8 @@ const AddToCart = () => {
       const cartToStore = updatedCart.map(item => {
         const itemCopy = {...item};
         // Store relative path only if it's a local image
-        if (itemCopy.image && itemCopy.image.startsWith('http://localhost:8000')) {
-          itemCopy.image = itemCopy.image.replace('http://localhost:8000', '');
+        if (itemCopy.image && itemCopy.image.startsWith('https://pesticide-fullsite-work.onrender.com')) {
+          itemCopy.image = itemCopy.image.replace('https://pesticide-fullsite-work.onrender.com', '');
         }
         return itemCopy;
       });
@@ -59,8 +59,8 @@ const AddToCart = () => {
       // Update state with proper image paths for display
       const itemsWithFullImagePath = updatedCart.map(item => ({
         ...item,
-        image: item.image && !item.image.startsWith('http://localhost:8000') && !item.image.startsWith('data:')
-          ? `http://localhost:8000${item.image}`
+        image: item.image && !item.image.startsWith('https://pesticide-fullsite-work.onrender.com') && !item.image.startsWith('data:')
+          ? `https://pesticide-fullsite-work.onrender.com${item.image}`
           : item.image
       }));
       
@@ -123,8 +123,8 @@ const AddToCart = () => {
         // Use numeric price for calculations
         price: numericPrice,
         // Ensure proper image path
-        image: item.image && !item.image.startsWith('http://localhost:8000') && !item.image.startsWith('data:')
-          ? `http://localhost:8000${item.image}`
+        image: item.image && !item.image.startsWith('https://pesticide-fullsite-work.onrender.com') && !item.image.startsWith('data:')
+          ? `https://pesticide-fullsite-work.onrender.com${item.image}`
           : item.image
       };
     });

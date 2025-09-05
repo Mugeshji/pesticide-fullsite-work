@@ -134,7 +134,7 @@ export default function PaymentPage() {
           }
 
           const response = await fetch(
-            `http://localhost:8000/api/update-quantity/${item._id || item.id}`,
+            `https://pesticide-fullsite-work.onrender.com/api/update-quantity/${item._id || item.id}`,
             {
               method: "PUT",
               headers: { "Content-Type": "application/json" },
@@ -160,7 +160,7 @@ export default function PaymentPage() {
         }
 
         const response = await fetch(
-          `http://localhost:8000/api/update-quantity/${product._id || product.id}`,
+          `https://pesticide-fullsite-work.onrender.com/api/update-quantity/${product._id || product.id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -419,7 +419,7 @@ export default function PaymentPage() {
                     transition={{ type: "spring", stiffness: 200 }}
                   >
                     <img
-                      src={`http://localhost:8000${product.image}`}
+                      src={`https://pesticide-fullsite-work.onrender.com${product.image}`}
                       alt={product.name}
                       className="product-img"
                     />

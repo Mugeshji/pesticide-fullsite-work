@@ -35,7 +35,7 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/products");
+        const response = await axios.get("https://pesticide-fullsite-work.onrender.com/api/products");
         setProducts(response.data);
       } catch (error) {
         console.log("Error while fetching data", error);
@@ -245,7 +245,7 @@ function Home() {
               <div className="img-box">
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`https://pesticide-fullsite-work.onrender.com${product.image}`} 
                     alt={product.name} 
                     width="250" 
                     height="250"

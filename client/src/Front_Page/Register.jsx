@@ -27,7 +27,7 @@ function Register() {
         formData.append("phone", user.phone);
     
         try {
-            await axios.post("http://localhost:8000/api/userreg", formData, {
+            await axios.post("https://pesticide-fullsite-work.onrender.com/api/userreg", formData, {
               headers: { "Content-Type": "application/json" } // The Content-Type: multipart/form-data header 
                 // ensures the request properly transmits the file and text data.
             });

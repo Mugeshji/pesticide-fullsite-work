@@ -14,7 +14,7 @@ const Update = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/product/${id}`)
+      .get(`https://pesticide-fullsite-work.onrender.com/api/product/${id}`)
       .then((response) => {
         setProduct(response.data);
       })
@@ -45,7 +45,7 @@ console.log(product.name)
     }
 
     try {
-      await axios.put(`http://localhost:8000/api/update/product/${id}`, formData, {
+      await axios.put(`https://pesticide-fullsite-work.onrender.com/api/update/product/${id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

@@ -25,7 +25,7 @@ const UpdateUser = () => {
   // fetch user details when id changes
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/user/${id}`)
+      .get(`https://pesticide-fullsite-work.onrender.com/api/user/${id}`)
       .then((response) => {
         setUser(response.data);
       })
@@ -38,7 +38,7 @@ const UpdateUser = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     await axios
-      .put(`http://localhost:8000/api/update/user/${id}`, user)
+      .put(`https://pesticide-fullsite-work.onrender.com/api/update/user/${id}`, user)
       .then(() => {
         navigate("/");
       })

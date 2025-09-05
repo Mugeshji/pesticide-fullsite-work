@@ -39,7 +39,7 @@ function Auth() {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post("http://localhost:8000/api/login", {
+      const { data } = await axios.post("https://pesticide-fullsite-work.onrender.com/api/login", {
         email: user.email,
         password: user.password,
       });
@@ -57,7 +57,7 @@ function Auth() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8000/api/userreg", user, {
+      await axios.post("https://pesticide-fullsite-work.onrender.com/api/userreg", user, {
         headers: { "Content-Type": "application/json" },
       });
       alert("Registered successfully");

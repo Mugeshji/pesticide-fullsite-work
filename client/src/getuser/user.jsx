@@ -9,7 +9,7 @@ const User = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/users");
+        const response = await axios.get("https://pesticide-fullsite-work.onrender.com/api/users");
         setUsers(response.data);
       } catch (error) {
         console.log("Error while fetching data", error);
@@ -20,7 +20,7 @@ const User = () => {
 
   const deleteUser = async (userId) => {
     await axios
-      .delete(`http://localhost:8000/api/delete/user/${userId}`)
+      .delete(`https://pesticide-fullsite-work.onrender.com/api/delete/user/${userId}`)
       .then(() => {
         setUsers((prevUsers) => prevUsers.filter((user) => user._id !== userId));
       })
@@ -83,7 +83,7 @@ const User = () => {
               {/* <td>
                 {user.image ? (
                   <img 
-                    src={`http://localhost:8000${user.image}`} 
+                    src={`https://pesticide-fullsite-work.onrender.com${user.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 

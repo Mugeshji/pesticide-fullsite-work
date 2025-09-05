@@ -32,7 +32,7 @@ function Add_products() {
     formData.append("image", user.image);
 
     try {
-      await axios.post("http://localhost:8000/api/product_details", formData, {
+      await axios.post("https://pesticide-fullsite-work.onrender.com/api/product_details", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       navigate("/products");
