@@ -1,0 +1,249 @@
+/* Scope everything under .login-page to avoid conflicts with previous/global CSS */
+.login-page {
+  --lp-yellow-100: #fff8d6;
+  --lp-yellow-200: #ffef99;
+  --lp-yellow-300: #ffe166;
+  --lp-yellow-400: #ffd23f;
+  --lp-yellow-500: #f9c309;
+  --lp-yellow-600: #d4a307;
+  --lp-brown-900: #4a3b05;
+  --lp-text: #3d2f02;
+
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: radial-gradient(1200px 600px at 20% 20%, #fff7c8 0%, transparent 50%),
+              radial-gradient(1000px 500px at 80% 80%, #ffea7a 0%, transparent 50%),
+              linear-gradient(135deg, var(--lp-yellow-100), var(--lp-yellow-200));
+}
+
+/* ===== TOPBAR / NAVBAR ===== */
+.login-page .lp-topbar {
+  background: linear-gradient(90deg, var(--lp-yellow-500), var(--lp-yellow-400)) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 14px;
+  font-weight: 600;
+}
+.login-page .lp-topbar .topbar a {
+  color: #2b2300 !important;
+  text-decoration: none;
+}
+.login-page .lp-topbar .topbar a:hover {
+  text-decoration: underline;
+}
+.login-page .lp-topbar .topbar-info i {
+  color: #3d2f02;
+}
+.login-page .lp-topbar .search-form input {
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  font-size: 14px;
+}
+.login-page .lp-topbar .search-form .btn {
+  background: transparent;
+  border: none;
+}
+.login-page .lp-topbar .topbar-icon a i {
+  font-size: 14px;
+  color: #3d2f02;
+  transition: transform 0.2s ease;
+}
+.login-page .lp-topbar .topbar-icon a:hover i {
+  transform: scale(1.2);
+}
+
+/* ===== LOGIN / REGISTER CARD ===== */
+.login-page .lp-wrap {
+  min-height: calc(100vh - 56px);
+  display: grid;
+  place-items: center;
+  padding: 3rem 1rem;
+  position: relative;
+}
+
+/* Card */
+.login-page .lp-card {
+  width: min(100%, 1000px);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 193, 7, 0.35);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 0 0 8px rgba(255, 215, 64, 0.08);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 24px;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  transform-origin: center;
+}
+
+/* Left side image */
+.login-page .lp-left {
+  position: relative;
+  background: var(--lp-yellow-400);
+}
+.login-page .lp-left img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.1) contrast(1.05);
+}
+.login-page .lp-left-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.35), transparent 40%);
+  pointer-events: none;
+}
+
+/* Right side content */
+.login-page .lp-right {
+  padding: 3rem 2rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-page .lp-title {
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 900;
+  color: var(--lp-brown-900);
+  text-shadow: 0 2px 0 rgba(255, 215, 64, 0.5);
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+  opacity: 0;            /* animated in */
+  transform: translateY(-10px);
+}
+.login-page .lp-title .lp-sparkle { margin-left: 6px; }
+
+.login-page .lp-form { display: grid; gap: 1rem; }
+
+.login-page .lp-label {
+  font-weight: 700;
+  color: var(--lp-text);
+  margin-bottom: 0.35rem;
+  display: inline-block;
+}
+
+.login-page .lp-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  border: 2px solid var(--lp-yellow-300);
+  background: #fffdf5;
+  color: var(--lp-text);
+  font-weight: 600;
+  outline: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.05s ease;
+}
+.login-page .lp-input::placeholder { color: #9c7f00; opacity: 0.7; }
+.login-page .lp-input:focus {
+  border-color: var(--lp-yellow-500);
+  box-shadow: 0 0 0 6px rgba(255, 215, 64, 0.25);
+  transform: translateY(-1px);
+}
+
+.login-page .lp-btn {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.95rem 1.25rem;
+  border-radius: 14px;
+  background: linear-gradient(90deg, var(--lp-yellow-500), var(--lp-yellow-400));
+  border: none;
+  color: #2b2300;
+  font-weight: 800;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  box-shadow:
+    0 8px 20px rgba(255, 193, 7, 0.35),
+    inset 0 -2px 0 rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.login-page .lp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 28px rgba(255, 193, 7, 0.45),
+    inset 0 -2px 0 rgba(0,0,0,0.1);
+  filter: brightness(1.03);
+}
+.login-page .lp-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 6px 16px rgba(255, 193, 7, 0.3),
+    inset 0 2px 0 rgba(0,0,0,0.08);
+}
+
+.login-page .lp-subtext {
+  margin-top: 1rem;
+  color: #6b5603;
+  font-weight: 600;
+}
+.login-page .lp-link,
+.login-page .lp-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--lp-brown-900);
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255, 193, 7, 0.6);
+  cursor: pointer;
+}
+.login-page .lp-link:hover,
+.login-page .lp-link-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* Floating lights */
+.login-page .lp-fx {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(24px);
+  opacity: 0.45;
+  animation: lp-float 7s ease-in-out infinite alternate;
+}
+.login-page .lp-fx-1 {
+  width: 180px; height: 180px; top: 10%; left: 8%;
+  background: radial-gradient(circle, #ffe066, transparent 60%);
+  animation-delay: 0s;
+}
+.login-page .lp-fx-2 {
+  width: 220px; height: 220px; bottom: 8%; right: 10%;
+  background: radial-gradient(circle, #ffd23f, transparent 60%);
+  animation-delay: .8s;
+}
+.login-page .lp-fx-3 {
+  width: 140px; height: 140px; bottom: 25%; left: 35%;
+  background: radial-gradient(circle, #fff07a, transparent 60%);
+  animation-delay: 1.6s;
+}
+
+@keyframes lp-float {
+  from { transform: translateY(0px) translateX(0px); }
+  to   { transform: translateY(-14px) translateX(10px); }
+}
+
+/* Small entrance animations (CSS-only) */
+.login-page .lp-fade-in-down {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity .8s ease, transform .8s cubic-bezier(.22,1,.36,1);
+}
+.login-page .lp-pop-in {
+  animation: lp-pop .9s cubic-bezier(.2, .8, .3, 1) .15s both;
+}
+@keyframes lp-pop {
+  0% { transform: scale(.96); opacity: 0; }
+  60% { transform: scale(1.02); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .login-page .lp-card { grid-template-columns: 1fr; }
+  .login-page .lp-left { display: none; }
+  .login-page .lp-right { padding: 2rem 1.25rem; }
+}
