@@ -11,10 +11,14 @@ const app = express();
 // ==================== MIDDLEWARE ====================
 app.use(bodyParser.json());
 
-// ✅ Allow frontend to connect (in production, set actual frontend URL in env)
+// ✅ Allow localhost + deployed frontend
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://pesticide-frontend-hf3f.onrender.com", // your deployed frontend
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
