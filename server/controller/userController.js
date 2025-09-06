@@ -211,7 +211,6 @@ export const updateProductQuantity = async (req, res) => {
     res.status(500).json({ message: "Something went wrong while updating quantity" });
   }
 };
-
 // ==================== USER CONTROLLERS ====================
 export const reguser = async (req, res) => {
   try {
@@ -252,21 +251,19 @@ export const loginUser = async (req, res) => {
     }
 
     const normalizedEmail = String(email).trim().toLowerCase();
+    const user = await User.findOne({ email: normalizedEmail });
 
-    // ✅ Direct admin check (no DB required for admin)
+    if (!user || user.password !== password) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
     if (normalizedEmail === "admin@gmail.com" && password === "admin") {
       return res.status(200).json({
         message: "Admin login successful",
-        name: "Admin",
-        email: "admin@gmail.com",
+        name: user.name,
+        email: user.email,
         role: "admin",
       });
-    }
-
-    // Normal user flow
-    const user = await User.findOne({ email: normalizedEmail });
-    if (!user || user.password !== password) {
-      return res.status(401).json({ message: "Invalid credentials" });
     }
 
     res.status(200).json({
